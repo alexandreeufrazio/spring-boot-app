@@ -1,11 +1,18 @@
 package br.gov.sp.fatec.springbootapp.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 @Entity
 @Table(name = usr_usuario)
 public class Usuario{
 
     @Id
-    @GeneratedValue(Strategy = GenationType.IDENTITY)
+    @GeneratedValue(Strategy = GenerationType.IDENTITY)
     @Column(name = usr_id)
     private Long id;
 
