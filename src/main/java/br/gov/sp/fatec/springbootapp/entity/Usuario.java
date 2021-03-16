@@ -1,6 +1,9 @@
 package br.gov.sp.fatec.springbootapp.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,15 +12,21 @@ import javax.persistence.Table;
 public class Usuario {
     
     @Id
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "usr_id")
+    private Long id;
+
+    @Column(name = "usr_nome")
     private String nome;
+
+    @Column(name = "usr_senha")
     private String senha;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
