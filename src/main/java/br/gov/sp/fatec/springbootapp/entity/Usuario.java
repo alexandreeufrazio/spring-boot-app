@@ -22,6 +22,14 @@ public class Usuario {
     @Column(name = "usr_senha")
     private String senha;
 
+    
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "uau_usuario_autorizacao",
+	    joinColumns = { @JoinColumn(name = "usr_id")},
+	    inverseJoinColumns = {@JoinColumn(name = "aut_id")}
+	)
+    private Set<Autorizacao> autorizacoes;
+
     public Long getId() {
         return id;
     }
@@ -44,6 +52,14 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public Set<Autorizacao> getAutorizacoes() {
+        return autorizacoes;
+    }
+
+    public void setAutorizacoes(Set<Autorizacao> autorizacoes) {
+        this.autorizacoes = autorizacoes;
     }
 
 }
