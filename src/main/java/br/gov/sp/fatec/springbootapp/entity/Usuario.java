@@ -1,12 +1,14 @@
 package br.gov.sp.fatec.springbootapp.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = usr_usuario)
+@Table(name = "usr_usuario")
 public class Usuario {
     
+    @Id
     private long id;
     private String nome;
     private String senha;
